@@ -2,16 +2,15 @@ async function main() {
     const [deployer] = await ethers.getSigners();
   
     console.log("Deploying contracts with the account:", deployer.address);
-  
     console.log("Account balance:", (await deployer.getBalance()).toString());
   
-    const MAINCONTRACT = await ethers.getContractFactory("MainContract");
+    const DISTRIBUTIONCONTRACT = await ethers.getContractFactory("DistributionContract");
     console.log("Deploying Distribution");
-    const instance = await MAINCONTRACT.deploy("0xb30DDb667a82c56E354fE512Fbe5bce58069317D");
+    const instance = await DISTRIBUTIONCONTRACT.deploy("0x26DDd974ec281B4Eb5bBfb3E9d0891f2d6f92935");
     
     await instance.deployed();
   
-    console.log("ERC20Token deployed at: ", instance.address);
+    console.log("Distribuion ERC20 Contract deployed at: ", instance.address);
   }
   
   main()
@@ -20,3 +19,5 @@ async function main() {
       console.error(error);
       process.exit(1);
     });
+
+    // 0xE0c68Fa3797B7e76a552e86898Af9bf2ad1B2315,0x13DE2ee396BE552FA76184846020BfaEbF349745,0xDE863EB5e0098a978412139F1CD8123FB59F5801,0xB414f451E5667D7e47f7d7C34BD2054Aa6A6105d
